@@ -19,6 +19,20 @@ jobs:
         submodules: recursive
         fetch-depth: 0
 
+        - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Replace with FFmpeg 8.1 source
+      run: |
+        rm -rf ffmpeg
+        wget -O ffmpeg-8.1.tar.xz https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz
+        tar -xf ffmpeg-8.1.tar.xz
+        mv ffmpeg-8.1 ffmpeg
+        rm -f ffmpeg-8.1.tar.xz
+
     - name: Setup Android NDK
       uses: nttld/setup-ndk@v1
       id: setup-ndk
