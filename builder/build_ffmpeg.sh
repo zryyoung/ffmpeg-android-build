@@ -384,6 +384,24 @@ function build_ffmpeg() {
 
   if [[ "$CREATE_DYNAMIC_LINK_PROGRAM" == "1" ]]; then
 
+    # FFMPEG_OBJS=(
+      # "fftools/ffmpeg_dec.o"
+      # "fftools/ffmpeg_demux.o"
+      # "fftools/ffmpeg_enc.o"
+      # "fftools/ffmpeg_filter.o"
+      # "fftools/ffmpeg_hw.o"
+      # "fftools/ffmpeg_mux.o"
+      # "fftools/ffmpeg_mux_init.o"
+      # "fftools/ffmpeg_opt.o"
+      # "fftools/ffmpeg_sched.o"
+      # "fftools/objpool.o"
+      # "fftools/sync_queue.o"
+      # "fftools/thread_queue.o"
+      # "fftools/cmdutils.o"
+      # "fftools/opt_common.o"
+      # "fftools/ffmpeg.o"
+    # )
+    
     FFMPEG_OBJS=(
       "fftools/ffmpeg_dec.o"
       "fftools/ffmpeg_demux.o"
@@ -394,14 +412,12 @@ function build_ffmpeg() {
       "fftools/ffmpeg_mux_init.o"
       "fftools/ffmpeg_opt.o"
       "fftools/ffmpeg_sched.o"
-      "fftools/objpool.o"
-      "fftools/sync_queue.o"
-      "fftools/thread_queue.o"
       "fftools/cmdutils.o"
       "fftools/opt_common.o"
       "fftools/ffmpeg.o"
     )
 
+    
     echo "=== Create ffmpeg-dynamic  ==="
     # Create ffmpeg executable
     $CC \
