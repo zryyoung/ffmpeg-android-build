@@ -450,25 +450,6 @@ function pack_tgz() {
   echo "Archive created: $BUILD_DIST/$ARCHIVE_NAME"
 }
 
-
-# =============================================================================
-# 在这里指定 FFmpeg 版本
-# =============================================================================
-FFMPEG_VERSION="8.1"
-FFMPEG_DIR="$PROJECT_ROOT/ffmpeg"
-FFMPEG_TAR="ffmpeg-$FFMPEG_VERSION.tar.xz"
-FFMPEG_URL="https://ffmpeg.org/releases/$FFMPEG_TAR"
-
-# 如果不存在则下载并解压
-if [ ! -d "$FFMPEG_DIR" ]; then
-  echo "Downloading FFmpeg $FFMPEG_VERSION..."
-  cd "$PROJECT_ROOT"
-  wget -O "$FFMPEG_TAR" "$FFMPEG_URL"
-  tar xf "$FFMPEG_TAR"
-  mv "ffmpeg-$FFMPEG_VERSION" "$FFMPEG_DIR"
-  rm -f "$FFMPEG_TAR"
-fi
-
 env_setup
 build_and_install_deps
 build_ffmpeg
