@@ -19,12 +19,6 @@ jobs:
         submodules: recursive
         fetch-depth: 0
 
-        - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
-        fetch-depth: 0
-
     - name: Replace with FFmpeg 8.1 source
       run: |
         rm -rf ffmpeg
@@ -99,11 +93,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Release to Maven
-      run: |
-        chmod +x release.sh
-        ./release.sh
-      env:
-        GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
-        SONATYPE_AUTH_TOKEN: ${{ secrets.SONATYPE_AUTH_TOKEN }}
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+    
